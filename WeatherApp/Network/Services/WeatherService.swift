@@ -7,15 +7,16 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 protocol WeatherServiceProtocol: AnyObject {
-    func getWeatherInfo() -> AnyPublisher<WeatherRespense, Error>
+    func getWeatherInfo(coordinates: CLLocationCoordinate2D) -> AnyPublisher<WeatherRespense, Error>
 }
 
 class WeatherService: WeatherServiceProtocol {
-      func getWeatherInfo() -> AnyPublisher<WeatherRespense, Error> {
+      func getWeatherInfo(coordinates: CLLocationCoordinate2D) -> AnyPublisher<WeatherRespense, Error> {
         guard let url = URL(
-            string: EndPoint.baseUrl + "/59.337239,18.062381"
+            string: EndPoint.baseUrl + "/\(coordinates.latitude),\(coordinates.longitude)"
         ) else {
             return Future<WeatherRespense, Error> { promise in
                 promise(.failure(FetchError.failed))

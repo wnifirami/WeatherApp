@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 protocol WeatherManufactoring {
     static func configureWeatherView() -> WeatherView
 }
@@ -14,8 +15,10 @@ final class WeatehrFactory: WeatherManufactoring {
     
     public static func configureWeatherView() -> WeatherView {
         let servcie = WeatherService()
+        let locationManager = CLLocationManager()
         let viewModel = ViewModel(
-            service: servcie
+            service: servcie,
+            locationManager: locationManager
         )
         let weatherView = WeatherView(
             viewModel: viewModel
