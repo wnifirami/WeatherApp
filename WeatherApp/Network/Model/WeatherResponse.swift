@@ -50,7 +50,6 @@ struct Datum: Codable, Identifiable {
     let summary: String
     let icon: String
     let sunriseTime, sunsetTime: Int
-    let moonPhase, precipIntensity, precipIntensityMax, precipProbability: Double
     let temperatureHigh: Double
     let temperatureHighTime: Int
     let temperatureLow: Double

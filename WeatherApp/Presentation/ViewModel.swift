@@ -63,12 +63,10 @@ extension ViewModel {
                     print("nothing much to do here")
                 }
             } receiveValue: { (response) in
-                debugPrint("response: \(response)")
                 self.state = .success(response)
             }
             .store(in: &subscriptions)
     }
-    
  
 }
 
