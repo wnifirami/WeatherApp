@@ -19,7 +19,8 @@ struct WeatherRespense: Codable {
 }
 
 // MARK: - Currently
-struct Currently: Codable {
+struct Currently: Codable, Identifiable {
+    let id = UUID()
     let time: Int
     let summary: String
     let icon: String
@@ -43,7 +44,8 @@ struct Daily: Codable {
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct Datum: Codable, Identifiable {
+    let id = UUID()
     let time: Int
     let summary: String
     let icon: String
@@ -92,6 +94,7 @@ struct Flags: Codable {
 
 // MARK: - Hourly
 struct Hourly: Codable {
+
     let summary: String
     let icon: String
     let data: [Currently]
