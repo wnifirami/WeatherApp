@@ -27,6 +27,7 @@ extension EndPoint {
 
 enum FetchError: Error {
     case failed
+    case timeout
 }
 
 let offlineError = "Ooops! we lost internet connection"

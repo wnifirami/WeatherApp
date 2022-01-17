@@ -13,6 +13,7 @@
 		EA04B755279343AC0077C91E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA04B754279343AC0077C91E /* Preview Assets.xcassets */; };
 		EA04B760279343AC0077C91E /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04B75F279343AC0077C91E /* WeatherAppTests.swift */; };
 		EA04B76B279343AD0077C91E /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04B76A279343AD0077C91E /* WeatherAppUITests.swift */; };
+		EA257B0A2794E34D00852E24 /* MockServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA257B092794E34D00852E24 /* MockServices.swift */; };
 		EA496C78279359850025E576 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA496C77279359850025E576 /* Spinner.swift */; };
 		EA496C7A27935A820025E576 /* DownloadableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA496C7927935A820025E576 /* DownloadableImage.swift */; };
 		EA496C7C27935AA00025E576 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA496C7B27935AA00025E576 /* ImageCache.swift */; };
@@ -68,6 +69,7 @@
 		EA04B766279343AD0077C91E /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA04B76A279343AD0077C91E /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		EA04B76C279343AD0077C91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA257B092794E34D00852E24 /* MockServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServices.swift; sourceTree = "<group>"; };
 		EA496C77279359850025E576 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		EA496C7927935A820025E576 /* DownloadableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadableImage.swift; sourceTree = "<group>"; };
 		EA496C7B27935AA00025E576 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				EA04B75F279343AC0077C91E /* WeatherAppTests.swift */,
 				EA04B761279343AC0077C91E /* Info.plist */,
+				EA257B092794E34D00852E24 /* MockServices.swift */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA04B760279343AC0077C91E /* WeatherAppTests.swift in Sources */,
+				EA257B0A2794E34D00852E24 /* MockServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,6 +90,7 @@ struct WeatherView: View {
                 Text(data.timezone.getClearTimeZone())
                     .font(.largeTitle)
                     .fontWeight(.black)
+                    .accessibilityIdentifier("title")
                 HStack {
                     Spacer()
                  Image(systemName: "calendar")
@@ -108,8 +109,6 @@ struct WeatherView: View {
             }
             .padding()
         }
-       
-       
     }
     
     

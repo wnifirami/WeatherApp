@@ -16,7 +16,6 @@ struct ShadowModifier: ViewModifier {
                     .stroke(Color.gray, lineWidth: 1)
                     .shadow(color: .secondary, radius: 1)
             )
-           
     }
 }
 

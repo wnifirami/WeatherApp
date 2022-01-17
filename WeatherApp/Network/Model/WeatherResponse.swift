@@ -24,15 +24,10 @@ struct Currently: Codable, Identifiable {
     let time: Int
     let summary: String
     let icon: String
-    let precipIntensity, precipProbability, temperature, apparentTemperature: Double
-    let dewPoint, humidity, pressure, windSpeed: Double
-    let windGust: Double
-    let windBearing: Int
-    let cloudCover: Double
+    let  temperature, apparentTemperature: Double
+    let  humidity, pressure, windSpeed: Double
     let uvIndex: Int
     let visibility, ozone: Double
-    let precipType: String?
-    let precipAccumulation: Double?
 }
 
 
@@ -51,29 +46,13 @@ struct Datum: Codable, Identifiable {
     let icon: String
     let sunriseTime, sunsetTime: Int
     let temperatureHigh: Double
-    let temperatureHighTime: Int
     let temperatureLow: Double
-    let temperatureLowTime: Int
-    let apparentTemperatureHigh: Double
-    let apparentTemperatureHighTime: Int
-    let apparentTemperatureLow: Double
-    let apparentTemperatureLowTime: Int
-    let dewPoint, humidity, pressure, windSpeed: Double
-    let windGust: Double
-    let windGustTime, windBearing: Int
-    let cloudCover: Double
-    let uvIndex, uvIndexTime: Int
-    let visibility, ozone, temperatureMin: Double
+    let  humidity, pressure, windSpeed: Double
+    let uvIndex: Int
+    let visibility, temperatureMin: Double
     let temperatureMinTime: Int
     let temperatureMax: Double
-    let temperatureMaxTime: Int
-    let apparentTemperatureMin: Double
-    let apparentTemperatureMinTime: Int
-    let apparentTemperatureMax: Double
-    let apparentTemperatureMaxTime: Int
-    let precipIntensityMaxTime: Int?
-    let precipType: String?
-    let precipAccumulation: Double?
+
 }
 
 // MARK: - Flags
