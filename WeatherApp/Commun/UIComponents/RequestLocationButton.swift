@@ -18,7 +18,10 @@ struct RequestLocationButton: View {
         Button(action: {
             eventController.request()
         }, label: {
-            Label("Allow tracking", systemImage: "location")
+            Label(
+                "Allow tracking",
+                  systemImage: "location"
+            )
         })
         .padding(10)
         .foregroundColor(.white)

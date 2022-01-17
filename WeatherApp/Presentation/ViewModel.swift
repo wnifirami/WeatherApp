@@ -16,17 +16,27 @@ protocol PermissionProtocol: AnyObject {
 }
 
 class ViewModel:NSObject, ObservableObject {
-    enum State {
+    enum State: Equatable {
         case initial
         case loading
         case success(WeatherRespense)
         case fail(Error)
+        
+        static func == (lhs: ViewModel.State, rhs: ViewModel.State) -> Bool {
+            switch (lhs,rhs) {
+            case (let .success(lhsdata), let .success(rhsdata)):
+                return lhsdata.currently.time == rhsdata.currently.time
+            case (let .fail(lhsfail), let .fail(rhsfail)):
+                return lhsfail.localizedDescription == rhsfail.localizedDescription
+            default:
+                return false
+            }
+        }
     }
     @Published var networkStatus: NWPath.Status = .satisfied
     @Published private(set) var state = State.initial
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var lastSeenLocation: CLLocation?
-    @Published var currentPlacemark: CLPlacemark?
 
     var subscriptions = Set<AnyCancellable>()
     private let monitorQueue = DispatchQueue(label: "monitor")
@@ -53,8 +63,13 @@ class ViewModel:NSObject, ObservableObject {
 extension ViewModel {
     func getWeather() {
         self.state = .loading
-        service.getWeatherInfo(coordinates: lastSeenLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 36.806389, longitude: 10.181667))
-            .receive(on: RunLoop.main)
+        service.getWeatherInfo(
+            coordinates: lastSeenLocation?.coordinate ?? CLLocationCoordinate2D(
+                latitude: 36.806389,
+                longitude: 10.181667
+            )
+        )
+            .receive(on: DispatchQueue.main)
             .sink { (completion) in
                 switch completion {
                 case .failure(let error):
@@ -63,12 +78,10 @@ extension ViewModel {
                     print("nothing much to do here")
                 }
             } receiveValue: { (response) in
-                debugPrint("response: \(response)")
                 self.state = .success(response)
             }
             .store(in: &subscriptions)
     }
-    
  
 }
 
@@ -100,15 +113,6 @@ extension ViewModel: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastSeenLocation = locations.first
-        fetchCountryAndCity(for: locations.first)
-    }
-    
-    func fetchCountryAndCity(for location: CLLocation?) {
-        guard let location = location else { return }
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-            self.currentPlacemark = placemarks?.first
-        }
     }
 }
 

@@ -57,5 +57,4 @@ struct ViewDidLoadModifier: ViewModifier {
             }
         }
     }
-
 }
